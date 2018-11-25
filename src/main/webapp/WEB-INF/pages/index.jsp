@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +7,8 @@
 <title>MyFirstWebApp</title>
 </head>
 <body>
-<h1> Hello World)</h1>
+<div> Hello World) This is right page!!!</div>
+<div><a href = "/EPAM_courses_web_app/hello"> Goto hello WEB Page</a></div>
+<div><a href = "/EPAM_courses_web_app/newspapers">Goto newspapers list</a></div>
 </body>
 </html>

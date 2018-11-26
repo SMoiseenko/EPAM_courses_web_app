@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="static_res/css/style.css">
 <title>List all newspapers</title>
 </head>
 <body>
@@ -26,5 +27,6 @@
 			</tr>
 		</c:forEach>
 	</table>
+	<form action="/EPAM_courses_web_app"><button>BACK</button></form>
 </body>
 </html>

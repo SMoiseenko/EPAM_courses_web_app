@@ -25,13 +25,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     // path to HTML recourses
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	registry.addResourceHandler("/WEB-INF/pages/**").addResourceLocations("/pages/");
+	registry.addResourceHandler("/static_res/**").addResourceLocations("/static_res/");
     }
 
     @Bean
     public InternalResourceViewResolver getViewResolver() {
 	InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-	viewResolver.setPrefix("/WEB-INF/pages/");
+	viewResolver.setPrefix("/pages/");
 	viewResolver.setSuffix(".jsp");
 	return viewResolver;
     }

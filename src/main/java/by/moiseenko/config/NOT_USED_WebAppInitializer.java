@@ -1,4 +1,4 @@
-package by.moiseenko.config;
+/*package by.moiseenko.config;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletRegistration;
@@ -13,14 +13,17 @@ public class SpringWebAppInitializer implements WebApplicationInitializer {
     @Override
     public void onStartup(ServletContext servletContext) {
 	AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
-	appContext.register(ApplicationConfig.class);
+	appContext.register(WebMvcConfig.class);
+	appContext.refresh();
+	
 	servletContext.addListener(new ContextLoaderListener(appContext));
 
 	// Dispatcher Servlet
-	ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher",
-		new DispatcherServlet(appContext));
-	dispatcher.setLoadOnStartup(1);
-	dispatcher.addMapping("/");
-	dispatcher.setInitParameter("contextClass", appContext.getClass().getName());
+	DispatcherServlet servlet = new DispatcherServlet(appContext);
+	ServletRegistration.Dynamic registration = servletContext.addServlet("dispatcher",
+		servlet);
+	registration.setLoadOnStartup(1);
+	registration.addMapping("/");
+	registration.setInitParameter("contextClass", appContext.getClass().getName());
     }
-}
+}*/

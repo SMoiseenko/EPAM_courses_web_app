@@ -1,10 +1,10 @@
-package by.moiseenko.dao;
+package by.moiseenko.service;
 
 import java.util.List;
 
 import by.moiseenko.entity.Newspaper;
 
-public interface PeriodicalsDao {
+public interface PeriodicalsService {
 
     List<Newspaper> getAll();
 

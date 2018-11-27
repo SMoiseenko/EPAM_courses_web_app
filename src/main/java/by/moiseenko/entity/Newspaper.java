@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class Newspaper {
     private String issn;
     private String title;
-    private String discription;
+    private String description;
     private int qtyPerYear;
     private BigDecimal price;
 
@@ -25,12 +25,12 @@ public class Newspaper {
 	this.title = title;
     }
 
-    public String getDiscription() {
-	return discription;
+    public String getDescription() {
+	return description;
     }
 
-    public void setDiscription(String discription) {
-	this.discription = discription;
+    public void setDescription(String discription) {
+	this.description = discription;
     }
 
     public int getQtyPerYear() {

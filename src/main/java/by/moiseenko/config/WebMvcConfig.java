@@ -17,15 +17,14 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 //allowed to use Spring MVC
 @EnableWebMvc
 //path, where find project component, such as (   )
-@ComponentScan(basePackages = { "by.moiseenko.controller", "by.moiseenko.service", "by.moiseenko.dao",
-	"by.moiseenko.mapper" })
+@ComponentScan(basePackages = { "by.moiseenko.controller", "by.moiseenko.service", "by.moiseenko.dao" })
 
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     // path to HTML recourses
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	registry.addResourceHandler("/static_res/**").addResourceLocations("/static_res/");
+	registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 
     @Bean

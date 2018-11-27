@@ -4,14 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="static_res/css/style.css">
+<link rel="shortcut icon" type="image/png"
+	href="resources/images/icon.png" />
+<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
 <link rel="stylesheet" type="text/css"
-	href="https://fonts.googleapis.com/css?family=Fredericka+the+Great">
-<title>MyFirstWebApp</title>
+	href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" />
+<title>Periodicals subscribe service</title>
 </head>
 <body>
-<div class = "header">Hello World) This is right page!!!</div>
-<form action="/EPAM_courses_web_app/hello"><button>Go to Hello web-page</button></form> 
-<form action="/EPAM_courses_web_app/newspapers"><button>Goto newspapers list</button></form>
+
+	<div class="header">Hello World) This is right page!!!</div>
+	<form action="${pageContext.request.contextPath}/hello">
+		<button>Go to Hello web-page</button>
+	</form>
+	<form action="${pageContext.request.contextPath}/newspapers">
+		<button>Goto newspapers list</button>
+	</form>
 </body>
 </html>

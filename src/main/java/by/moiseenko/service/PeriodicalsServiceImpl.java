@@ -9,15 +9,24 @@ import by.moiseenko.dao.PeriodicalsDao;
 import by.moiseenko.entity.Newspaper;
 
 @Service
-public class NewspaperServiceImpl implements NewspaperService {
+public class PeriodicalsServiceImpl implements PeriodicalsService {
 
     @Autowired
-    private PeriodicalsDao userDao;
+    private PeriodicalsDao periodicalsDao;
 
     @Override
     public List<Newspaper> getAll() {
 
-	return userDao.getAll();
+	return periodicalsDao.getAll();
     }
+
+    @Override
+    public void add(Newspaper newspaper) {
+	
+	periodicalsDao.add(newspaper);
+	
+    }
+    
+    
 
 }

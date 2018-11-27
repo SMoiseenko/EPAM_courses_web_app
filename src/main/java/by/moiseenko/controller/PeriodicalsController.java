@@ -3,34 +3,44 @@ package by.moiseenko.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import by.moiseenko.service.NewspaperService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import by.moiseenko.entity.Newspaper;
+import by.moiseenko.service.PeriodicalsService;
 
 @Controller
 public class PeriodicalsController {
 
-    private NewspaperService newspaperService;
+    private PeriodicalsService periodicalsService;
 
     @Autowired
-    public PeriodicalsController(NewspaperService newspaperService) {
+    public PeriodicalsController(PeriodicalsService periodicalsService) {
 	super();
-	this.newspaperService = newspaperService;
+	this.periodicalsService = periodicalsService;
     }
 
-    @RequestMapping("/hello")
+    @GetMapping("/hello")
     public String hello() {
 	return "hello";
     }
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String index() {
 	return "index";
     }
 
-    @RequestMapping("/newspapers")
+    @GetMapping("/newspapers")
     public String getAllNewspappers(Model model) {
-	model.addAttribute("newspaperList", this.newspaperService.getAll());
+	model.addAttribute("newspaperList", this.periodicalsService.getAll());
 	return "newspapersList";
+    }
+    
+    @PostMapping("/addNewspaper")
+    public String addNewspaper(@ModelAttribute("newspaper") Newspaper newspaper ) {
+	periodicalsService.add(newspaper);
+	return "redirect:/newspapers";
     }
 
 }

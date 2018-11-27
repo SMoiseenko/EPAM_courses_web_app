@@ -6,11 +6,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.moiseenko</groupId>
-	<artifactId>EPAM_courses_web_app</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<artifactId>Periodicals</artifactId>
+	<version>0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>EPAM_courses_web_app</name>
+	<name>Periodicals</name>
 	<url>https://github.com/SMoiseenko/EPAM_courses_web_app</url>
 
 	<properties>
@@ -20,12 +20,6 @@
 	</properties>
 
 	<dependencies>
-
-		<!-- <dependency> <groupId>org.springframework</groupId> <artifactId>spring-core</artifactId> 
-			<version>4.3.20.RELEASE</version> </dependency> <dependency> <groupId>org.springframework</groupId> 
-			<artifactId>spring-context-support</artifactId> <version>4.3.20.RELEASE</version> 
-			</dependency> <dependency> <groupId>org.springframework</groupId> <artifactId>spring-aop</artifactId> 
-			<version>4.3.20.RELEASE</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.springframework</groupId>

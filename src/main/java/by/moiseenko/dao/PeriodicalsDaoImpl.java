@@ -25,4 +25,12 @@ public class PeriodicalsDaoImpl implements PeriodicalsDao {
 	return jdbcTemplate.query(sql, new NewspaperMapper());
     }
 
+    @Override
+    public void add(Newspaper newspaper) {
+	String sql = "INSERT INTO newspapers (ISSN, title, description, qty_per_year, price) VALUE (?, ?, ?, ?, ?)";
+	jdbcTemplate.update(sql, newspaper.getIssn(), newspaper.getTitle(), newspaper.getDescription(),
+		newspaper.getQtyPerYear(), newspaper.getPrice());
+
+    }
+
 }

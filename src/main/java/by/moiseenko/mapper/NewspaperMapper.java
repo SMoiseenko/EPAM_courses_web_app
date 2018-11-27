@@ -14,7 +14,7 @@ public class NewspaperMapper implements RowMapper<Newspaper> {
 	Newspaper newspapper = new Newspaper();
 	newspapper.setIssn(rs.getString("ISSN"));
 	newspapper.setTitle(rs.getString("title"));
-	newspapper.setDiscription(rs.getString("discription"));
+	newspapper.setDescription(rs.getString("description"));
 	newspapper.setQtyPerYear(rs.getInt("qty_per_year"));
 	newspapper.setPrice(rs.getBigDecimal("price"));
 	System.out.println(newspapper);

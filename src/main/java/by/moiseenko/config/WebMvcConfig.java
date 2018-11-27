@@ -44,7 +44,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     @Bean
     public DataSource getDataSource() {
 	DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	dataSource.setUrl("jdbc:mysql://localhost:3306/periodicalsDB");
+	dataSource.setUrl("jdbc:mysql://localhost:3306/periodicalsDB?useSSL=false");
 	dataSource.setUsername("user");
 	dataSource.setPassword("12345678");
 	dataSource.setDriverClassName("com.mysql.jdbc.Driver");

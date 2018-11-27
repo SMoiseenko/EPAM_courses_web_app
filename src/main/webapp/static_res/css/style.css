@@ -1,3 +1,87 @@
 @charset "UTF-8";
-body {color:black;}
-h1 {color:#0000FF; text-align:center; font-family:consolas}
+
+html {
+	font-family: "Open Sans";
+}
+
+body {
+	background-color: #9da7af;
+}
+
+div.header {
+	font-family: "Fredericka the Great";
+	font-size: 30px;
+	text-align: center;
+	padding: 10px;
+}
+div.content {
+	width: 80%;
+}
+div.sidebar {
+	width: 20%;
+	background-color: red;
+}
+
+table {
+	table-layout: fixed;
+	width: 98%;
+	margin: auto;
+	border-collapse: collapse;
+	border: 3px solid black;
+}
+
+thead {
+	background-color: #4d9900;
+	font-size: 16px;
+}
+
+th {
+	padding: 10px;
+	border: 3px solid black;
+}
+
+th:nth-child(1) {
+	width: 5%;
+}
+
+th:nth-child(2) {
+	width: 10%;
+}
+
+th:nth-child(3) {
+	width: 65%;
+}
+
+th:nth-child(4) {
+	width: 10%;
+}
+
+th:nth-child(5) {
+	width: 10%;
+}
+
+tbody {
+	text-align: center;
+	background-color: #c7cdd1;
+}
+
+td {
+	border: 1px solid black;
+	padding: 5px;
+}
+
+td:nth-child(3) {
+	text-align: left;
+}
+
+button {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	background-color: #4d9900;
+	font-size: 24px;
+	border-radius: 8px;
+	border: none;
+	margin-left: 50px;
+	margin-top: 20px;
+	padding: 5px;
+}

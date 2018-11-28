@@ -3,11 +3,20 @@ package by.moiseenko.entity;
 import java.math.BigDecimal;
 
 public class Newspaper {
+    private int id;
     private String issn;
     private String title;
     private String description;
     private int qtyPerYear;
     private BigDecimal price;
+
+    public int getId() {
+	return id;
+    }
+
+    public void setId(int id) {
+	this.id = id;
+    }
 
     public String getIssn() {
 	return issn;
@@ -51,6 +60,6 @@ public class Newspaper {
 
     @Override
     public String toString() {
-	return issn + " " + title + " " + qtyPerYear + " " + price;
+	return id + " " + issn + " " + title + " " + qtyPerYear + " " + price;
     }
 }

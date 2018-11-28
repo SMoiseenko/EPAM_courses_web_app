@@ -6,8 +6,10 @@ import by.moiseenko.entity.Newspaper;
 
 public interface PeriodicalsService {
 
-    List<Newspaper> getAll();
+    List<Newspaper> getAllNewspapers();
 
-    void add(Newspaper newspaper);
+    void addNewspaper(Newspaper newspaper);
+
+    Newspaper getNewspaperById(int id);
 
 }

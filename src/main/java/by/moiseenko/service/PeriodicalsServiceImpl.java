@@ -15,15 +15,21 @@ public class PeriodicalsServiceImpl implements PeriodicalsService {
     private PeriodicalsDao periodicalsDao;
 
     @Override
-    public List<Newspaper> getAll() {
+    public List<Newspaper> getAllNewspapers() {
 
-	return periodicalsDao.getAll();
+	return periodicalsDao.getAllNewspapers();
     }
 
     @Override
-    public void add(Newspaper newspaper) {
+    public void addNewspaper(Newspaper newspaper) {
 	
-	periodicalsDao.add(newspaper);
+	periodicalsDao.addNewspaper(newspaper);
+	
+    }
+
+    @Override
+    public Newspaper getNewspaperById(int id) {
+	return	periodicalsDao.getNewspaperById(id);
 	
     }
     

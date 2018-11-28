@@ -5,12 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-
 import by.moiseenko.entity.Newspaper;
 import by.moiseenko.service.PeriodicalsService;
 
 @Controller
+
 public class PeriodicalsController {
 
     private PeriodicalsService periodicalsService;
@@ -23,24 +24,30 @@ public class PeriodicalsController {
 
     @GetMapping("/hello")
     public String hello() {
-	return "hello";
+	return "/hello";
     }
 
     @GetMapping("/")
     public String index() {
-	return "index";
+	return "/index";
     }
 
     @GetMapping("/newspapers")
     public String getAllNewspappers(Model model) {
-	model.addAttribute("newspaperList", this.periodicalsService.getAll());
-	return "newspapersList";
+	model.addAttribute("newspaperList", this.periodicalsService.getAllNewspapers());
+	return "/admin/newspapersServiceList";
     }
-    
+
     @PostMapping("/addNewspaper")
-    public String addNewspaper(@ModelAttribute("newspaper") Newspaper newspaper ) {
-	periodicalsService.add(newspaper);
+    public String addNewspaper(@ModelAttribute("newspaper") Newspaper newspaper) {
+	this.periodicalsService.addNewspaper(newspaper);
 	return "redirect:/newspapers";
+    }
+
+    @GetMapping("/newspaperUpdateDelete/{id}")
+    public String newspaperUpdateDelete(@PathVariable("id") int id, Model model) {
+	model.addAttribute("newspaper", this.periodicalsService.getNewspaperById(id));
+	return "/admin/newspaperUpdateDelete";
     }
 
 }

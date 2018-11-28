@@ -13,6 +13,6 @@
 </head>
 <body>
 <div class = "header">Hello, MAN;</div>
-<form action="${pageContext.request.contextPath}"><button>BACK</button></form>
+<form action="${pageContext.request.contextPath}/"><button>BACK</button></form>
 </body>
 </html>

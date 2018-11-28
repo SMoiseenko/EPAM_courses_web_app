@@ -29,7 +29,7 @@
 			<c:forEach items="${newspaperList}" var="nl">
 				<tbody>
 					<tr>
-						<td>${nl.issn}</td>
+						<td><a href="${pageContext.request.contextPath}/newspaperUpdateDelete/${nl.id}">${nl.issn}</a></td>
 						<td>${nl.title}</td>
 						<td>${nl.description}</td>
 						<td>${nl.qtyPerYear}</td>
@@ -39,28 +39,21 @@
 			</c:forEach>
 		</table>
 		<br>
-		<form name = "addNewspaper" action="${pageContext.request.contextPath}/addNewspaper" method="post">
-		ISSN
-		<input title="ISSN" type="text" name="issn">
-		Title
-		<input title="Title" type="text" name="title">
-		Description
-		<input title="Description" type="text" name="description">
-		Qty per year
-		<input title="Qty per year" type="text" name="qtyPerYear">
-		Price
-		<input title="Price" type="text" name="price">
-		<input type="submit" value="ADD">
+		<form name="addNewspaper" action="${pageContext.request.contextPath}/addNewspaper" method="post">
+			ISSN <input name="issn" type="text" name="issn" maxlength="9" value="1234-4321">
+			Title <input name="title" type="text" name="title" value="Enter title">
+			Description <input name="description" type="text" name="description" value="Enter description">
+			Qty per year <input name="qtyPerYear" type="number" name="qtyPerYear" value="0"> 
+			Price <input name="price" type="number" step="0.01" min="0" value="0"> 
+			<input type="submit" value="Add new newspaper">
 		</form>
 	</div>
-	<div class="sidebar">
-		
-	</div>
+	<div class="sidebar"></div>
 	<div class="footer">
-	<form action="${pageContext.request.contextPath}">
+		<form action="${pageContext.request.contextPath}/">
 			<button>BACK</button>
 		</form>
-		
+
 	</div>
 </body>
 </html>

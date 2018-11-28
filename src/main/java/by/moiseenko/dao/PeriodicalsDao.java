@@ -6,8 +6,14 @@ import by.moiseenko.entity.Newspaper;
 
 public interface PeriodicalsDao {
 
-    List<Newspaper> getAll();
+    List<Newspaper> getAllNewspapers();
+    
+    Newspaper getNewspaperById(int id);
 
-    void add(Newspaper newspaper);
+    void addNewspaper(Newspaper newspaper);
+    
+    void editNewspaper (Newspaper newspaper);
+    
+    void deleteNewspaper (Newspaper newspaper);
 
 }

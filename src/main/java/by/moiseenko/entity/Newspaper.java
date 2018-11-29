@@ -60,6 +60,8 @@ public class Newspaper {
 
     @Override
     public String toString() {
-	return id + " " + issn + " " + title + " " + qtyPerYear + " " + price;
+	return "Newspaper [issn=" + issn + ", title=" + title + ", description=" + description + ", qtyPerYear="
+		+ qtyPerYear + ", price=" + price + "]";
     }
+
 }

@@ -11,7 +11,7 @@ public class User {
     private String email;
     private String phoneNumber;
     private String adress;
-    private boolean siActive;
+    private boolean active;
 
     public int getId() {
 	return id;
@@ -85,19 +85,19 @@ public class User {
 	this.adress = adress;
     }
 
-    public boolean isSiActive() {
-	return siActive;
+    public boolean isActive() {
+	return active;
     }
 
-    public void setSiActive(boolean siActive) {
-	this.siActive = siActive;
+    public void setActive(boolean active) {
+	this.active = active;
     }
 
     @Override
     public String toString() {
 	return "User [id=" + id + ", login=" + login + ", password=" + password + ", role=" + role + ", firstName="
 		+ firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber=" + phoneNumber
-		+ ", adress=" + adress + ", siActive=" + siActive + "]";
+		+ ", adress=" + adress + ", active=" + active + "]";
     }
 
 }

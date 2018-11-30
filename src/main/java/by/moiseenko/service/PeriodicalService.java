@@ -4,7 +4,7 @@ import java.util.List;
 
 import by.moiseenko.entity.Newspaper;
 
-public interface PeriodicalsService {
+public interface PeriodicalService {
 
     List<Newspaper> getAllNewspapers();
 

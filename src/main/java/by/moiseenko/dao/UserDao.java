@@ -1,5 +1,7 @@
 package by.moiseenko.dao;
 
+import java.util.List;
+
 import by.moiseenko.entity.User;
 
 public interface UserDao {
@@ -8,4 +10,5 @@ public interface UserDao {
 
     User getUserById(int id);
 
+    List<User> getAllUsers();
 }

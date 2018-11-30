@@ -1,4 +1,4 @@
-package by.moiseenko.service;
+package by.moiseenko.service.impl;
 
 import java.util.List;
 
@@ -7,32 +7,32 @@ import org.springframework.stereotype.Service;
 
 import by.moiseenko.dao.PeriodicalsDao;
 import by.moiseenko.entity.Newspaper;
+import by.moiseenko.service.PeriodicalService;
 
 @Service
-public class PeriodicalsServiceImpl implements PeriodicalsService {
+public class PeriodicalServiceImpl implements PeriodicalService {
+
+    private PeriodicalsDao periodicalsDao;
 
     @Autowired
-    private PeriodicalsDao periodicalsDao;
+    public PeriodicalServiceImpl(PeriodicalsDao periodicalsDao) {
+	super();
+	this.periodicalsDao = periodicalsDao;
+    }
 
     @Override
     public List<Newspaper> getAllNewspapers() {
-
 	return periodicalsDao.getAllNewspapers();
     }
 
     @Override
     public void addNewspaper(Newspaper newspaper) {
-	
 	periodicalsDao.addNewspaper(newspaper);
-	
     }
 
     @Override
     public Newspaper getNewspaperById(int id) {
-	return	periodicalsDao.getNewspaperById(id);
-	
+	return periodicalsDao.getNewspaperById(id);
     }
-    
-    
 
 }

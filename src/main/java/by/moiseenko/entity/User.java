@@ -10,7 +10,7 @@ public class User {
     private String lastName;
     private String email;
     private String phoneNumber;
-    private String adress;
+    private String address;
     private boolean active;
 
     public int getId() {
@@ -77,12 +77,12 @@ public class User {
 	this.phoneNumber = phoneNumber;
     }
 
-    public String getAdress() {
-	return adress;
+    public String getAddress() {
+	return address;
     }
 
-    public void setAdress(String adress) {
-	this.adress = adress;
+    public void setAddress(String adress) {
+	this.address = adress;
     }
 
     public boolean isActive() {
@@ -97,7 +97,7 @@ public class User {
     public String toString() {
 	return "User [id=" + id + ", login=" + login + ", password=" + password + ", role=" + role + ", firstName="
 		+ firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber=" + phoneNumber
-		+ ", adress=" + adress + ", active=" + active + "]";
+		+ ", address=" + address + ", active=" + active + "]";
     }
 
 }

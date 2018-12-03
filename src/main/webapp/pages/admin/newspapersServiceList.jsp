@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -16,7 +17,7 @@
 <body>
 	<div class="header">List Of Newspapers</div>
 	<div class="content">
-		<table>
+		<table class="newspappersadminlist">
 			<thead>
 				<tr>
 					<th>ISSN</th>

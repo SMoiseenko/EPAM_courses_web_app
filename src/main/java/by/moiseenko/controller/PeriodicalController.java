@@ -25,7 +25,7 @@ public class PeriodicalController {
 
     @GetMapping("/newspapers")
     public String getAllNewspappers(Model model) {
-	model.addAttribute("newspaperList", this.periodicalService.getAllNewspapers());
+	model.addAttribute("newspaperList", periodicalService.getAllNewspapers());
 	return "/admin/newspapersServiceList";
     }
 
@@ -37,7 +37,7 @@ public class PeriodicalController {
 
     @GetMapping("/newspaperUpdateDelete/{id}")
     public String newspaperUpdateDelete(@PathVariable("id") int id, Model model) {
-	model.addAttribute("newspaper", this.periodicalService.getNewspaperById(id));
+	model.addAttribute("newspaper", periodicalService.getNewspaperById(id));
 	return "/admin/newspaperUpdateDelete";
     }
 

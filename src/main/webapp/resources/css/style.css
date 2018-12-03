@@ -30,7 +30,7 @@ div.footer {
 	position: relative;
 }
 
-table {
+.newspappersadminlist table{
 	table-layout: fixed;
 	width: 98%;
 	margin: auto;
@@ -43,7 +43,7 @@ thead {
 	font-size: 16px;
 }
 
-th {
+th  {
 	padding: 10px;
 	border: 3px solid black;
 }

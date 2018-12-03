@@ -1,11 +1,15 @@
 package by.moiseenko.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import by.moiseenko.dao.UserDao;
 import by.moiseenko.entity.User;
 import by.moiseenko.service.UserService;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     private UserDao userDao;
@@ -26,6 +30,11 @@ public class UserServiceImpl implements UserService {
 	    }
 	}
 	return user;
+    }
+
+    @Override
+    public List<User> getAllUsers() {
+	return userDao.getAllUsers();
     }
 
 }

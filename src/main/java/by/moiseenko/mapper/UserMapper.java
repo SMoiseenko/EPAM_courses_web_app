@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+import by.moiseenko.entity.Role;
 import by.moiseenko.entity.User;
 
 public class UserMapper implements RowMapper<User> {
@@ -12,17 +13,19 @@ public class UserMapper implements RowMapper<User> {
     @Override
     public User mapRow(ResultSet rs, int rowNum) throws SQLException {
 	User user = new User();
-	user.setId(rs.getInt("id"));
-	user.setLogin(rs.getString("login"));
-	user.setPassword(rs.getString("password"));
-	// user.setRole(new RoleDaoImpl(jdbcTemplate).getRoleByName(id));
-	user.setFirstName(rs.getString("firstName"));
-	user.setLastName(rs.getString("lastName"));
-	user.setEmail(rs.getString("email"));
-	user.setPhoneNumber(rs.getString("phone"));
-	user.setAdress(rs.getString("adress"));
-	user.setActive(rs.getBoolean("active"));
-
+	Role role = new Role();
+	user.setId(rs.getInt("ID"));
+	user.setLogin(rs.getString("LOGIN"));
+	user.setPassword(rs.getString("PASSWORD"));
+	role.setId(rs.getInt("ROLE_ID"));
+	role.setRole(rs.getString("ROLE_TYPE"));
+	user.setRole(role);
+	user.setFirstName(rs.getString("NAME"));
+	user.setLastName(rs.getString("SURNAME"));
+	user.setEmail(rs.getString("E_MAIL"));
+	user.setPhoneNumber(rs.getString("MOB_NUMBER"));
+	user.setAddress(rs.getString("ADDRESS"));
+	user.setActive(rs.getBoolean("STATUS"));
 	return user;
     }
 

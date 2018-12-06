@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import by.moiseenko.service.UserService;
@@ -29,9 +30,11 @@ public class UserController {
 	return "/index";
     }
 
-    @GetMapping("/userslist")
+    @PostMapping("/userslist")
     public String getAllUsersList(@RequestParam String uname, @RequestParam String psw, Model model) {
 	model.addAttribute("usersList", userService.getAllUsers());
+	model.addAttribute("USERNAME", uname);
+	model.addAttribute("PASSWORD", psw);
 	return "admin/usersList";
     }
 

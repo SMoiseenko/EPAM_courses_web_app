@@ -13,7 +13,7 @@
 	<div class="header">Login Form</div>
 	<div class="header">
 
-		<form action="${pageContext.request.contextPath}/userslist">
+		<form action="${pageContext.request.contextPath}/userslist" method="post">
 			<label for="uname"><b>Username</b></label> <input type="text" placeholder="Enter Username" name="uname" required>
 			<br> 
 			<label for="psw"><b>Password</b></label> <input type="password" placeholder="Enter Password" name="psw"	required>

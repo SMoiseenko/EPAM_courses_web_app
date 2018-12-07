@@ -17,6 +17,7 @@
 <body>
 	<div class="header">
 		All users list<br> Your are login as: ${USERNAME}<br>
+		Cookie: ${cookie.hitCounter.value}<br>
 
 	</div>
 

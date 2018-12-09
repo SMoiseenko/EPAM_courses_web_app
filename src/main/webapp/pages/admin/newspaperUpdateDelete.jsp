@@ -12,7 +12,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="header">${newspaper.title}</div>
+	<div id="header">${newspaper.title}</div>
+	<div id="main">
 	<table>
 		<thead>
 			<tr>
@@ -31,9 +32,11 @@
 				<td>${newspaper.qtyPerYear}</td>
 				<td>${newspaper.price}</td>
 			</tr>
+	</tbody>		
 	</table>
 	<form action="${pageContext.request.contextPath}/newspapers">
 		<button>BACK</button>
 	</form>
-</body>
-</html>
+</div>
+<%@ include file="../service/footerPage.jsp" %>
+

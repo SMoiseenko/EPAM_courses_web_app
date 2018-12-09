@@ -3,6 +3,7 @@ package by.moiseenko.controller;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,9 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String index() {
+    public String index(HttpServletRequest request) {
+	HttpSession session = request.getSession();
+	session.setAttribute("mysSession", "pa-ra-ra-pam");
 	return "/index";
     }
 
@@ -40,19 +43,25 @@ public class UserController {
 	    @CookieValue(value = "hitCounter", defaultValue = "0") Long hitCounter, HttpServletResponse response,
 	    HttpServletRequest request, Model model) {
 
-	Cookie cookieSend = new Cookie("hitCounter", hitCounter.toString());
 	hitCounter++;
-	response.addCookie(cookieSend);
+
+	response.addCookie(new Cookie("hitCounter", hitCounter.toString()));
 
 	Cookie[] allReturnCookies = request.getCookies();
 	String cookieName = "hitCounter";
 	Cookie cookieReturned = null;
+	String cookieRecievedValue = "No cookie found";
 	for (Cookie c : allReturnCookies) {
-	    if (c.getName().equals(cookieName))
+	    if (c.getName().equals(cookieName)) {
 		cookieReturned = c;
-	    break;
+		cookieRecievedValue = cookieReturned.getValue();
+		break;
+	    }
 	}
-	System.out.printf("Returned cookie is : %s.\n", cookieReturned.getValue());
+	System.out.printf("Sended cookie is : %s.%n", hitCounter.toString());
+	System.out.printf("Returned cookie is : %s.%n", cookieRecievedValue);
+	System.out.printf("Session ID : %s.%n", request.getSession().getAttribute("mysSession"));
+
 	model.addAttribute("usersList", userService.getAllUsers());
 	model.addAttribute("USERNAME", uname);
 	model.addAttribute("PASSWORD", psw);

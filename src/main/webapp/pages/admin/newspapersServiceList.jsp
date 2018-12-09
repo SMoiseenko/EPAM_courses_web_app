@@ -15,8 +15,8 @@
 <title>List all newspapers</title>
 </head>
 <body>
-	<div class="header">List Of Newspapers</div>
-	<div class="content">
+	<div id="header">List Of Newspapers</div>
+	<div id="main">
 		<table class="newspappersadminlist">
 			<thead>
 				<tr>
@@ -48,13 +48,12 @@
 			Price <input name="price" type="number" step="0.01" min="0" value="0"> 
 			<input type="submit" value="Add new newspaper">
 		</form>
-	</div>
-	<div class="sidebar"></div>
-	<div class="footer">
-		<form action="${pageContext.request.contextPath}/">
+	<form action="${pageContext.request.contextPath}/">
 			<button>BACK</button>
-		</form>
-
-	</div>
-</body>
-</html>
+		</form>	
+		</div>
+	<%@ include file="../service/footerPage.jsp" %>
+	
+	
+	
+	

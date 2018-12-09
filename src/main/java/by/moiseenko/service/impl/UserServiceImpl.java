@@ -20,17 +20,17 @@ public class UserServiceImpl implements UserService {
 	this.userDao = userDao;
     }
 
-    @Override
-    public User autorisation(String name, String password) {
-	User user = null;
-	for (User usr : userDao.getAllUsers()) {
-	    if (usr.getLogin().equals(name) & usr.getPassword().equals(password) & usr.isActive() == true) {
-		user = usr;
-		break;
-	    }
-	}
-	return user;
-    }
+//    @Override
+//    public User autorisation(String name, String password) {
+//	User user = null;
+//	for (User usr : userDao.getAllUsers()) {
+//	    if (usr.getLogin().equals(name) & usr.getPassword().equals(password) & usr.isActive() == true) {
+//		user = usr;
+//		break;
+//	    }
+//	}
+//	return user;
+//    }
 
     @Override
     public List<User> getAllUsers() {

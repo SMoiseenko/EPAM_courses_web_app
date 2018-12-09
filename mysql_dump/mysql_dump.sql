@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `periodicalsDB` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE  IF NOT EXISTS `periodicalsDB` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `periodicalsDB`;
 -- MySQL dump 10.13  Distrib 8.0.13, for Linux (x86_64)
 --
@@ -30,7 +30,7 @@ CREATE TABLE `newspapers` (
   `title` varchar(100) NOT NULL,
   `description` text,
   `qty_per_year` int(11) NOT NULL,
-  `price` decimal(5,2) NOT NULL,
+  `price` decimal(5,2) NOT NULL DEFAULT '0.00',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -87,6 +87,7 @@ CREATE TABLE `users` (
   `email` varchar(40) NOT NULL,
   `phone` varchar(20) NOT NULL,
   `address` text NOT NULL,
+  `balance` decimal(10,2) DEFAULT '0.00',
   `active` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `login` (`login`),
@@ -103,7 +104,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin',1,'Admin','Adminovich','admin@admin.com','+375295556666','230025, Grodno, Kirova str., 1 ',1);
+INSERT INTO `users` VALUES (1,'admin','admin',1,'Admin','Adminovich','admin@admin.com','+375295556666','230025, Grodno, Kirova str., 1 ',100.00,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -116,4 +117,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-03 16:18:55
+-- Dump completed on 2018-12-09 21:14:42

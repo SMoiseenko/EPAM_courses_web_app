@@ -8,4 +8,12 @@ public interface UserService {
 
     List<User> getAllUsers();
 
+    Boolean addUser(User user);
+
+    User authorization(String name, String password);
+
+    Boolean checkStatus(User user);
+
+    String checkRole(User user);
+
 }

@@ -20,21 +20,32 @@ public class UserServiceImpl implements UserService {
 	this.userDao = userDao;
     }
 
-//    @Override
-//    public User autorisation(String name, String password) {
-//	User user = null;
-//	for (User usr : userDao.getAllUsers()) {
-//	    if (usr.getLogin().equals(name) & usr.getPassword().equals(password) & usr.isActive() == true) {
-//		user = usr;
-//		break;
-//	    }
-//	}
-//	return user;
-//    }
-
     @Override
     public List<User> getAllUsers() {
 	return userDao.getAllUsers();
+    }
+
+    @Override
+    public Boolean addUser(User user) {
+	userDao.addUser(user);
+	return true;
+    }
+
+    @Override
+    public User authorization(String name, String password) {
+	User user = userDao.authorization(name, password);
+	System.out.println(user);
+	return user;
+    }
+
+    @Override
+    public Boolean checkStatus(User user) {
+	return user.isActive();
+    }
+
+    @Override
+    public String checkRole(User user) {
+	return user.getRole().getRole();
     }
 
 }

@@ -40,11 +40,11 @@
 			</c:forEach>
 		</table>
 		<br>
-		<form name="addNewspaper" action="${pageContext.request.contextPath}/addNewspaper" method="post">
-			ISSN <input name="issn" type="text" name="issn" maxlength="9" value="1234-4321">
-			Title <input name="title" type="text" name="title" value="Enter title">
-			Description <input name="description" type="text" name="description" value="Enter description">
-			Qty per year <input name="qtyPerYear" type="number" name="qtyPerYear" value="0"> 
+		<form name="addNewspaper"  action="${pageContext.request.contextPath}/addNewspaper" method="post">
+			ISSN <input name="issn" type="text"  maxlength="9" value="1234-4321">
+			Title <input name="title" type="text"  value="Enter title">
+			Description <input name="description" type="text"  value="Enter description">
+			Qty per year <input name="qtyPerYear" type="number"  value="0"> 
 			Price <input name="price" type="number" step="0.01" min="0" value="0"> 
 			<input type="submit" value="Add new newspaper">
 		</form>

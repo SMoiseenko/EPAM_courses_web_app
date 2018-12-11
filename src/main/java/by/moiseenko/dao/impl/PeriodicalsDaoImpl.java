@@ -49,7 +49,7 @@ public class PeriodicalsDaoImpl implements PeriodicalsDao {
     @Override
     public Newspaper getNewspaperById(int id) {
 	String sql = "SELECT * FROM newspapers WHERE id=?";
-	return jdbcTemplate.queryForObject(sql, new NewspaperMapper(), id);
+	return jdbcTemplate.queryForObject(sql, new Object[] { id }, new NewspaperMapper());
     }
 
 }

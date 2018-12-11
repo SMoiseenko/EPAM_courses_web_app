@@ -8,7 +8,7 @@ public interface UserDao {
 
     User authorization(String name, String password);
 
-    void createUser(User user);
+    Boolean addUser(User user);
 
     User getUserById(int id);
 

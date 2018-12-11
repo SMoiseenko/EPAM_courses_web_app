@@ -21,4 +21,4 @@ ${badAuthorization}
 	</form>
 </div>
 
-<%@ include file="footerPage.jsp" %>
+<%@ include file="./footerPage.jsp" %>

@@ -81,7 +81,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `login` varchar(40) NOT NULL,
   `password` varchar(40) NOT NULL,
-  `role_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL DEFAULT '3',
   `first_name` varchar(40) NOT NULL,
   `last_name` varchar(40) NOT NULL,
   `email` varchar(40) NOT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `phone` (`phone`),
   KEY `users_fk0` (`role_id`),
   CONSTRAINT `users_fk0` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -104,9 +104,17 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin',1,'Admin','Adminovich','admin@admin.com','+375295556666','230025, Grodno, Kirova str., 1 ',100.00,1);
+INSERT INTO `users` VALUES (1,'admin','admin',1,'Admin','Adminovich','admin@admin.com','+375295556666','230025, Grodno, Kirova str., 1 ',100.00,1),(2,'testuser','test',3,'testname','testsurname','test@tut.by','+375665892','236547, Grodno cite',0.00,0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'periodicalsDB'
+--
+
+--
+-- Dumping routines for database 'periodicalsDB'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -117,4 +125,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-09 21:14:42
+-- Dump completed on 2018-12-11 15:46:56

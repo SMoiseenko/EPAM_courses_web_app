@@ -6,17 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import by.moiseenko.dao.PeriodicalsDao;
+import by.moiseenko.dao.PeriodicalDao;
 import by.moiseenko.entity.Newspaper;
 import by.moiseenko.mapper.NewspaperMapper;
 
 @Repository
-public class PeriodicalsDaoImpl implements PeriodicalsDao {
+public class PeriodicalDaoImpl implements PeriodicalDao {
 
     private JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public PeriodicalsDaoImpl(JdbcTemplate jdbcTemplate) {
+    public PeriodicalDaoImpl(JdbcTemplate jdbcTemplate) {
 	this.jdbcTemplate = jdbcTemplate;
     }
 

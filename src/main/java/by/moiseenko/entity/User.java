@@ -1,6 +1,7 @@
 package by.moiseenko.entity;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class User {
 
@@ -14,6 +15,7 @@ public class User {
     private String phoneNumber;
     private String address;
     private BigDecimal balance;
+    private List<Subscribe> userSubscribes;
     private boolean active;
 
     public int getId() {
@@ -88,6 +90,14 @@ public class User {
 	this.address = address;
     }
 
+    public List<Subscribe> getUserSubscribes() {
+	return userSubscribes;
+    }
+
+    public void setUserSubscribes(List<Subscribe> userSubscribes) {
+	this.userSubscribes = userSubscribes;
+    }
+
     public BigDecimal getBalance() {
 	return balance;
     }
@@ -108,7 +118,8 @@ public class User {
     public String toString() {
 	return "User [id=" + id + ", login=" + login + ", password=" + password + ", role=" + role + ", firstName="
 		+ firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber=" + phoneNumber
-		+ ", address=" + address + ", balance=" + balance + ", active=" + active + "]";
+		+ ", address=" + address + ", balance=" + balance + ", userSubscribes=" + userSubscribes + ", active="
+		+ active + "]";
     }
 
 }

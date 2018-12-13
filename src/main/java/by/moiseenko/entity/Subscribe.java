@@ -7,7 +7,7 @@ public class Subscribe {
     private User user;
     private BigDecimal price;
     private int monthSubscribed;
-    private PeriodicalType periodical;
+    private Periodical periodical;
     private int time;
     private String status;
 
@@ -43,11 +43,11 @@ public class Subscribe {
 	this.monthSubscribed = monthSubscribed;
     }
 
-    public PeriodicalType getPeriodical() {
+    public Periodical getPeriodical() {
 	return periodical;
     }
 
-    public void setPeriodical(PeriodicalType periodical) {
+    public void setPeriodical(Periodical periodical) {
 	this.periodical = periodical;
     }
 

@@ -21,8 +21,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUsers() {
-	return userDao.getAllUsers();
+    public List<User> getAllUsersWithRoles() {
+
+	return userDao.getAllUsersWithRoles();
     }
 
     @Override
@@ -45,7 +46,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String checkRole(User user) {
-	return user.getRole().getRole();
+	return user.getUserRole().getType();
     }
 
 }

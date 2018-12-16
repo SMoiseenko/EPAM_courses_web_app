@@ -65,7 +65,7 @@ public class UserController {
 	System.out.printf("Returned cookie is : %s.%n", cookieRecievedValue);
 	System.out.printf("Session ID : %s.%n", request.getSession().getAttribute("mysSession"));
 
-	model.addAttribute("usersList", userService.getAllUsers());
+	model.addAttribute("usersList", userService.getAllUsersWithRoles());
 	model.addAttribute("USERNAME", uname);
 	model.addAttribute("PASSWORD", psw);
 	return "admin/usersList";
@@ -95,11 +95,14 @@ public class UserController {
 	case "ADMIN":
 	    return "admin/adminHomePage";
 
-	case "anonumouse":
-	    return "";
+	case "ANONYMOUS":
+	    return "redirect:/index";
+
+	case "CUSTOMER":
+	    return "redirect:/index";
 
 	default:
-	    return "/index";
+	    return "redirect:/index";
 	}
     }
 

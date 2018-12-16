@@ -10,8 +10,8 @@
 </head>
 <body>
 	<div id="header">Registration form</div>
-	<div id="main">
-
+<div id="main">	
+<div id = "inputwrapper">
 		<form action="${pageContext.request.contextPath}/registration" method="post">
 			<label for="login"><b>Login</b></label> <input type="text" placeholder="Enter Login" name="login" required><br>
 			<label for="password"><b>Password</b></label> <input type="password" placeholder="Enter Password" name="password" required><br>
@@ -23,12 +23,13 @@
 
 			<button type="submit">Sign up</button>
 		</form>
-
+</div>
 		<form action="${pageContext.request.contextPath}/">
 			<button>BACK</button>
 		</form>
-
-
-
-	</div>
+</div>
+	
+	
 	<%@ include file="./footerPage.jsp"%>
+	
+	

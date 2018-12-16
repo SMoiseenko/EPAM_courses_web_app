@@ -12,5 +12,5 @@ public interface UserDao {
 
     User getUserById(int id);
 
-    List<User> getAllUsers();
+    List<User> getAllUsersWithRoles();
 }

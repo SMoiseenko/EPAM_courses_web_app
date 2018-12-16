@@ -1,21 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<link rel="shortcut icon" type="image/png"
-	href="resources/images/icon.png" />
-<link rel="stylesheet" type="text/css" href="resources/css/style.css" />
-<link rel="stylesheet" type="text/css"
-	href="//fonts.googleapis.com/css?family=Open+Sans" />
-<link rel="stylesheet" type="text/css"
-	href="https://fonts.googleapis.com/css?family=Fredericka+the+Great" />
+<%@ include file="../service/mainHeader.jsp"%>
 <title>All users list</title>
 </head>
 <body>
-	<div id="header">All users list</div>
+	<div id="header">
+		All users list<br>
+		<%@ include file="../admin/adminHeader.jsp"%>
+	</div>
 	<div id="main">
 		Your are login as: ${USERNAME}<br> Cookie:
 		${cookie.hitCounter.value}<br>
@@ -41,7 +31,7 @@
 						<td>${usr.id}</td>
 						<td>${usr.login}</td>
 						<td>${usr.password}</td>
-						<td>${usr.role.role}</td>
+						<td>${usr.userRole}${usr.userRole.active}</td>
 						<td>${usr.firstName}</td>
 						<td>${usr.lastName}</td>
 						<td>${usr.email}</td>

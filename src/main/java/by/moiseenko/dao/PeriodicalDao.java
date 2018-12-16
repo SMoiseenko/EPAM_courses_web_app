@@ -2,18 +2,18 @@ package by.moiseenko.dao;
 
 import java.util.List;
 
-import by.moiseenko.entity.Newspaper;
+import by.moiseenko.entity.periodical.Periodical;
 
 public interface PeriodicalDao {
 
-    List<Newspaper> getAllNewspapers();
+    List<Periodical> getAllPeriodicals();
 
-    Newspaper getNewspaperById(int id);
+    Periodical getPeriodicalById(int id);
 
-    void addNewspaper(Newspaper newspaper);
+    void addPeriodical(Periodical periodical);
 
-    void editNewspaper(Newspaper newspaper);
+    void editPeriodical(Periodical periodical);
 
-    void deleteNewspaper(Newspaper newspaper);
+    void deletePeriodical(Periodical periodical);
 
 }

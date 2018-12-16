@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import by.moiseenko.entity.Newspaper;
+import by.moiseenko.entity.periodical.Periodical;
 import by.moiseenko.service.PeriodicalService;
 
 @Controller
@@ -23,22 +23,29 @@ public class PeriodicalController {
 	this.periodicalService = periodicalService;
     }
 
-    @GetMapping("/newspapers")
-    public String getAllNewspappers(Model model) {
-	model.addAttribute("newspaperList", periodicalService.getAllNewspapers());
-	return "/admin/newspapersServiceList";
+    @GetMapping("/periodicals")
+    public String getAllPeriodicals(Model model) {
+	model.addAttribute("periodicalList", periodicalService.getAllPeriodicals());
+	return "/admin/periodicalsServiceList";
     }
 
-    @PostMapping("/addNewspaper")
-    public String addNewspaper(@ModelAttribute("newspaper") Newspaper newspaper) {
-	this.periodicalService.addNewspaper(newspaper);
-	return "redirect:/newspapers";
+    @PostMapping("/addPeriodical")
+    public String addNewspaper(@ModelAttribute("periodical") Periodical periodical) {
+	this.periodicalService.addPeriodical(periodical);
+	return "redirect:/periodicals";
     }
 
-    @GetMapping("/newspaperUpdateDelete/{id}")
+    @PostMapping("/editPeriodicals/{id}")
+    public String editNewspaper(@ModelAttribute("periodical") Periodical periodical, @PathVariable("id") int id) {
+	periodical.setId(id);
+	this.periodicalService.editPeriodical(periodical);
+	return "redirect:/periodicalUpdateDelete/{id}";
+    }
+
+    @GetMapping("/periodicalUpdateDelete/{id}")
     public String newspaperUpdateDelete(@PathVariable("id") int id, Model model) {
-	model.addAttribute("newspaper", periodicalService.getNewspaperById(id));
-	return "/admin/newspaperUpdateDelete";
+	model.addAttribute("periodical", periodicalService.getPeriodicalById(id));
+	return "/admin/periodicalUpdateDelete";
     }
 
 }

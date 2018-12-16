@@ -6,7 +6,7 @@ import by.moiseenko.entity.User;
 
 public interface UserService {
 
-    List<User> getAllUsers();
+    List<User> getAllUsersWithRoles();
 
     Boolean addUser(User user);
 

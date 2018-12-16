@@ -8,7 +8,7 @@ public class User {
     private int id;
     private String login;
     private String password;
-    private Role role;
+    private UserRole userRole;
     private String firstName;
     private String lastName;
     private String email;
@@ -42,12 +42,12 @@ public class User {
 	this.password = password;
     }
 
-    public Role getRole() {
-	return role;
+    public UserRole getUserRole() {
+	return userRole;
     }
 
-    public void setRole(Role role) {
-	this.role = role;
+    public void setUserRole(UserRole userRole) {
+	this.userRole = userRole;
     }
 
     public String getFirstName() {
@@ -116,10 +116,10 @@ public class User {
 
     @Override
     public String toString() {
-	return "User [id=" + id + ", login=" + login + ", password=" + password + ", role=" + role + ", firstName="
-		+ firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber=" + phoneNumber
-		+ ", address=" + address + ", balance=" + balance + ", userSubscribes=" + userSubscribes + ", active="
-		+ active + "]";
+	return "User [id=" + id + ", login=" + login + ", password=" + password + ", userRole=" + userRole
+		+ ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", phoneNumber="
+		+ phoneNumber + ", address=" + address + ", balance=" + balance + ", userSubscribes=" + userSubscribes
+		+ ", active=" + active + "]";
     }
 
 }

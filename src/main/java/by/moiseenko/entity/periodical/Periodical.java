@@ -1,14 +1,17 @@
-package by.moiseenko.entity;
+package by.moiseenko.entity.periodical;
 
 import java.math.BigDecimal;
 
-public class Newspaper {
+public class Periodical {
+
     private int id;
     private String issn;
+    private PeriodicalType periodicalType;
     private String title;
     private String description;
     private int qtyPerYear;
     private BigDecimal price;
+    private boolean active;
 
     public int getId() {
 	return id;
@@ -26,6 +29,14 @@ public class Newspaper {
 	this.issn = issn;
     }
 
+    public PeriodicalType getPeriodicalType() {
+	return periodicalType;
+    }
+
+    public void setPeriodicalType(PeriodicalType periodicalType) {
+	this.periodicalType = periodicalType;
+    }
+
     public String getTitle() {
 	return title;
     }
@@ -38,8 +49,8 @@ public class Newspaper {
 	return description;
     }
 
-    public void setDescription(String discription) {
-	this.description = discription;
+    public void setDescription(String description) {
+	this.description = description;
     }
 
     public int getQtyPerYear() {
@@ -58,10 +69,19 @@ public class Newspaper {
 	this.price = price;
     }
 
+    public boolean isActive() {
+	return active;
+    }
+
+    public void setActive(boolean active) {
+	this.active = active;
+    }
+
     @Override
     public String toString() {
-	return "Newspaper [issn=" + issn + ", title=" + title + ", description=" + description + ", qtyPerYear="
-		+ qtyPerYear + ", price=" + price + "]";
+	return "Periodical [id=" + id + ", issn=" + issn + ", periodicalType=" + periodicalType + ", title=" + title
+		+ ", description=" + description + ", qtyPerYear=" + qtyPerYear + ", price=" + price + ", active="
+		+ active + "]";
     }
 
 }

@@ -2,14 +2,16 @@ package by.moiseenko.service;
 
 import java.util.List;
 
-import by.moiseenko.entity.Newspaper;
+import by.moiseenko.entity.periodical.Periodical;
 
 public interface PeriodicalService {
 
-    List<Newspaper> getAllNewspapers();
+    List<Periodical> getAllPeriodicals();
 
-    void addNewspaper(Newspaper newspaper);
+    void addPeriodical(Periodical periodical);
 
-    Newspaper getNewspaperById(int id);
+    void editPeriodical(Periodical periodical);
+
+    Periodical getPeriodicalById(int id);
 
 }

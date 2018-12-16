@@ -7,11 +7,16 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import by.moiseenko.dao.PeriodicalDao;
-import by.moiseenko.entity.Newspaper;
-import by.moiseenko.mapper.NewspaperMapper;
+import by.moiseenko.entity.periodical.Periodical;
+import by.moiseenko.mapper.PeriodicalMapper;
 
 @Repository
 public class PeriodicalDaoImpl implements PeriodicalDao {
+
+    private final String SQL_INSERT_INTO_PERIODICALS = "INSERT INTO periodicals (ISSN, title, description, qty_per_year, price) VALUE (?, ?, ?, ?, ?)";
+    private final String SQL_SELECT_ALL_FROM_PERIODICALS = "SELECT * FROM periodicals";
+    private final String SQL_SELECT_BY_ID_FROM_PERIODICALS = "SELECT * FROM periodicals WHERE id=?";
+    private final String SQL_UPDATE_BY_ID_FROM_PERIODICAL = "UPDATE periodicals SET ISSN = ?, title = ?, description = ?, qty_per_year = ?, price = ? WHERE id=?";
 
     private JdbcTemplate jdbcTemplate;
 
@@ -21,35 +26,35 @@ public class PeriodicalDaoImpl implements PeriodicalDao {
     }
 
     @Override
-    public List<Newspaper> getAllNewspapers() {
-	String sql = "SELECT * FROM newspapers";
-	return jdbcTemplate.query(sql, new NewspaperMapper());
+    public List<Periodical> getAllPeriodicals() {
+	return jdbcTemplate.query(SQL_SELECT_ALL_FROM_PERIODICALS, new PeriodicalMapper());
     }
 
     @Override
-    public void addNewspaper(Newspaper newspaper) {
-	String sql = "INSERT INTO newspapers (ISSN, title, description, qty_per_year, price) VALUE (?, ?, ?, ?, ?)";
-	jdbcTemplate.update(sql, newspaper.getIssn(), newspaper.getTitle(), newspaper.getDescription(),
-		newspaper.getQtyPerYear(), newspaper.getPrice());
+    public void addPeriodical(Periodical periodical) {
+	jdbcTemplate.update(SQL_INSERT_INTO_PERIODICALS, periodical.getIssn(), periodical.getTitle(),
+		periodical.getDescription(), periodical.getQtyPerYear(), periodical.getPrice());
 
     }
 
     @Override
-    public void editNewspaper(Newspaper newspaper) {
+    public void editPeriodical(Periodical periodical) {
+	System.out.println(periodical);
+	jdbcTemplate.update(SQL_UPDATE_BY_ID_FROM_PERIODICAL, periodical.getIssn(), periodical.getTitle(),
+		periodical.getDescription(), periodical.getQtyPerYear(), periodical.getPrice(), periodical.getId());
+
+    }
+
+    @Override
+    public void deletePeriodical(Periodical periodical) {
 	// TODO Auto-generated method stub
 
     }
 
     @Override
-    public void deleteNewspaper(Newspaper newspaper) {
-	// TODO Auto-generated method stub
-
-    }
-
-    @Override
-    public Newspaper getNewspaperById(int id) {
-	String sql = "SELECT * FROM newspapers WHERE id=?";
-	return jdbcTemplate.queryForObject(sql, new Object[] { id }, new NewspaperMapper());
+    public Periodical getPeriodicalById(int id) {
+	return jdbcTemplate.queryForObject(SQL_SELECT_BY_ID_FROM_PERIODICALS, new Object[] { id },
+		new PeriodicalMapper());
     }
 
 }

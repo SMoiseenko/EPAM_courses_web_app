@@ -13,10 +13,6 @@
 				<label for="login"><b>Login</b></label> <input type="text" placeholder="Enter Login" name="login" required>
 				<br> <label for="password"><b>Password</b></label> <input type="password" placeholder="Enter Password"
 					name="password" required><br>
-					
-					<label> <input type="checkbox" name="remember">Remember
-					me
-				</label>
 				<button type="submit">Sign in</button>
 			</form>
 			</div> 

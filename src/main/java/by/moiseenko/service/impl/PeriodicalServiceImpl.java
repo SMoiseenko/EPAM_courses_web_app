@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import by.moiseenko.dao.PeriodicalDao;
-import by.moiseenko.entity.periodical.Periodical;
+import by.moiseenko.entity.Periodical;
 import by.moiseenko.service.PeriodicalService;
 
 @Service
@@ -36,8 +36,14 @@ public class PeriodicalServiceImpl implements PeriodicalService {
     }
 
     @Override
-    public void editPeriodical(Periodical periodical) {
-	periodicalDao.editPeriodical(periodical);
+    public void editPeriodicalById(Periodical periodical) {
+	periodicalDao.editPeriodicalById(periodical);
+
+    }
+
+    @Override
+    public void deletePeriodicalById(Periodical periodical) {
+	periodicalDao.deletePeriodicalById(periodical);
 
     }
 

@@ -2,7 +2,7 @@ package by.moiseenko.dao;
 
 import java.util.List;
 
-import by.moiseenko.entity.periodical.Periodical;
+import by.moiseenko.entity.Periodical;
 
 public interface PeriodicalDao {
 
@@ -12,8 +12,8 @@ public interface PeriodicalDao {
 
     void addPeriodical(Periodical periodical);
 
-    void editPeriodical(Periodical periodical);
+    void editPeriodicalById(Periodical periodical);
 
-    void deletePeriodical(Periodical periodical);
+    void deletePeriodicalById(Periodical periodical);
 
 }

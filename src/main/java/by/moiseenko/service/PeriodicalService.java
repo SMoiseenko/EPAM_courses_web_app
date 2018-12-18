@@ -2,7 +2,7 @@ package by.moiseenko.service;
 
 import java.util.List;
 
-import by.moiseenko.entity.periodical.Periodical;
+import by.moiseenko.entity.Periodical;
 
 public interface PeriodicalService {
 
@@ -10,7 +10,9 @@ public interface PeriodicalService {
 
     void addPeriodical(Periodical periodical);
 
-    void editPeriodical(Periodical periodical);
+    void editPeriodicalById(Periodical periodical);
+
+    void deletePeriodicalById(Periodical periodical);
 
     Periodical getPeriodicalById(int id);
 

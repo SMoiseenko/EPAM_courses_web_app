@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-import by.moiseenko.entity.periodical.Periodical;
+import by.moiseenko.entity.Periodical;
 
 public class PeriodicalMapper implements RowMapper<Periodical> {
 

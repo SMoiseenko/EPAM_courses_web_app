@@ -3,7 +3,6 @@ package by.moiseenko.controller;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +13,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import by.moiseenko.entity.User;
 import by.moiseenko.service.UserService;
 
 @Controller
+@SessionAttributes("userLoged")
 public class UserController {
+
     private static final Logger logger = Logger.getLogger(UserController.class);
     private UserService userService;
 
@@ -27,18 +30,7 @@ public class UserController {
     public UserController(UserService userService) {
 	super();
 	this.userService = userService;
-    }
 
-    @GetMapping("/hello")
-    public String hello() {
-	return "/hello";
-    }
-
-    @GetMapping("/")
-    public String index(HttpServletRequest request) {
-	HttpSession session = request.getSession();
-	session.setAttribute("mysSession", "pa-ra-ra-pam");
-	return "/index";
     }
 
     @PostMapping("/userslist")
@@ -68,7 +60,7 @@ public class UserController {
 	model.addAttribute("usersList", userService.getAllUsersWithRoles());
 	model.addAttribute("USERNAME", uname);
 	model.addAttribute("PASSWORD", psw);
-	return "admin/usersList";
+	return "/admin/usersList";
     }
 
     @GetMapping("/userRegistrationForm")
@@ -77,13 +69,14 @@ public class UserController {
     }
 
     @PostMapping("/authorization")
-    public String authorization(@RequestParam String login, @RequestParam String password, Model model) {
+    public String authorization(@SessionAttribute(required = false) User user, @RequestParam String login,
+	    @RequestParam String password, Model model) {
 
-	User user = userService.authorization(login, password);
+	user = userService.authorization(login, password);
 
 	if (user == null) {
 	    model.addAttribute("badAuthorization", "Wrong login or password. Try again.");
-	    return "service/badAuthorization";
+	    return "/service/badAuthorization";
 	}
 
 	if (!userService.checkStatus(user)) {
@@ -93,13 +86,15 @@ public class UserController {
 
 	switch (userService.checkRole(user)) {
 	case "ADMIN":
+	    model.addAttribute("userLoged", user);
 	    return "admin/adminHomePage";
 
 	case "ANONYMOUS":
 	    return "redirect:/index";
 
 	case "CUSTOMER":
-	    return "redirect:/index";
+	    model.addAttribute("userLoged", user);
+	    return "user/userHomePage";
 
 	default:
 	    return "redirect:/index";

@@ -5,7 +5,8 @@
 <div id="header">Admin homepage<br>
 <%@ include file="../admin/adminHeader.jsp" %>
 </div>
-<div id = "main"> </div>
+<div id = "main"> 
+</div>
 
 	<%@ include file="../service/footerPage.jsp" %>
 	

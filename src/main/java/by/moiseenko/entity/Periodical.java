@@ -1,4 +1,4 @@
-package by.moiseenko.entity.periodical;
+package by.moiseenko.entity;
 
 import java.math.BigDecimal;
 

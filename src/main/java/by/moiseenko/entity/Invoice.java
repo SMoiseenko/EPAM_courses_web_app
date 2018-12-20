@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class Invoice {
     private int id;
-    private Subscribe subscribe;
+    private Subscription subscribe;
     private BigDecimal cost;
     private boolean paid;
 
@@ -16,11 +16,11 @@ public class Invoice {
 	this.id = id;
     }
 
-    public Subscribe getSubscribe() {
+    public Subscription getSubscribe() {
 	return subscribe;
     }
 
-    public void setSubscribe(Subscribe subscribe) {
+    public void setSubscribe(Subscription subscribe) {
 	this.subscribe = subscribe;
     }
 

@@ -16,7 +16,7 @@
 				<th>Subscribe</th>
 			</tr>
 			
-			<c:forEach items="${periodicalsListForSubscribe}" var="pl">
+			<c:forEach items="${periodicalsListForSubscription}" var="pl">
 			<tr>
 				<td>${pl.issn}</td>
 				<td>${pl.title}</td>
@@ -24,8 +24,8 @@
 				<td>${pl.qtyPerYear}</td>
 				<td>${pl.price}$</td>
 				<td><form name="addSubscribe" action="${pageContext.request.contextPath}/addSubscribe" method="post">
-			<input name="periodical_id" type="hidden"  value="${pl}">
-			<input name="user" type="hidden"  value="${sessionScope.userLoged}">
+			<input name="periodical_id" type="hidden"  value="${pl.id}">
+			<input name="user_id" type="hidden"  value="${sessionScope.userLoged.id}">
 			<input name="monthSubscribed" type="radio" value="1">month 
 			<input name="monthSubscribed" type="radio" value="3">quarter 
 			<input name="monthSubscribed" type="radio" value="12">year<br> 

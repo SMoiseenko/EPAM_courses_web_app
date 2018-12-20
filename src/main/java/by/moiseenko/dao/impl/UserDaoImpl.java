@@ -18,8 +18,6 @@ public class UserDaoImpl implements UserDao {
 
     private final String SQL_GET_ALL_USERS_WITH_ROLES = "SELECT users.id AS ID, users.login AS LOGIN, users.password AS PASSWORD, users.first_name AS NAME, users.last_name AS SURNAME, users.email AS E_MAIL, users.phone AS MOB_NUMBER, users.address AS ADDRESS, users.balance AS BALANCE, users.active AS ACTIVE, users_roles.type AS USER_ROLE_TYPE, users_roles.active AS USER_ROLE_ACTIVE  FROM users JOIN users_roles ON users.role_type = users_roles.type";
 
-    private final String SQL_GET_USERS_ROLES = "SELECT users.role_type FROM users";
-
     private final String SQL_USER_AUTHORIZATION = "SELECT users.id AS ID, users.login AS LOGIN, users.password AS PASSWORD, users.first_name AS NAME, users.last_name AS SURNAME, users.email AS E_MAIL, users.phone AS MOB_NUMBER, users.address AS ADDRESS, users.balance AS BALANCE, users.active AS ACTIVE, users_roles.type AS USER_ROLE_TYPE, users_roles.active AS USER_ROLE_ACTIVE  FROM users JOIN users_roles ON users.role_type = users_roles.type WHERE users.login = ? AND users.password = ?";
 
     private JdbcTemplate jdbcTemplate;

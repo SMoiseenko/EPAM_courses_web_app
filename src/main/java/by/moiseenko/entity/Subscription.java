@@ -1,21 +1,19 @@
 package by.moiseenko.entity;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDate;
 
-public class Subscribe {
+public class Subscription {
 
     private int id;
     private BigDecimal totalPrice;
     private BigDecimal paid;
     private int monthSubscribed;
     private Periodical periodical;
-    private User user;
-
-    private Date dateBeginSubscribe;
-    private Date dateEndSubscribe;
+    private LocalDate dateBeginSubscribe;
+    private LocalDate dateEndSubscribe;
     private boolean paymentStatus;
-    private boolean subscribeStatus;
+    private boolean active;
 
     public int getId() {
 	return id;
@@ -57,27 +55,19 @@ public class Subscribe {
 	this.periodical = periodical;
     }
 
-    public User getUser() {
-	return user;
-    }
-
-    public void setUser(User user) {
-	this.user = user;
-    }
-
-    public Date getDateBeginSubscribe() {
+    public LocalDate getDateBeginSubscribe() {
 	return dateBeginSubscribe;
     }
 
-    public void setDateBeginSubscribe(Date dateBeginSubscribe) {
+    public void setDateBeginSubscribe(LocalDate dateBeginSubscribe) {
 	this.dateBeginSubscribe = dateBeginSubscribe;
     }
 
-    public Date getDateEndSubscribe() {
+    public LocalDate getDateEndSubscribe() {
 	return dateEndSubscribe;
     }
 
-    public void setDateEndSubscribe(Date dateEndSubscribe) {
+    public void setDateEndSubscribe(LocalDate dateEndSubscribe) {
 	this.dateEndSubscribe = dateEndSubscribe;
     }
 
@@ -89,20 +79,20 @@ public class Subscribe {
 	this.paymentStatus = paymentStatus;
     }
 
-    public boolean isSubscribeStatus() {
-	return subscribeStatus;
+    public boolean isActive() {
+	return active;
     }
 
-    public void setSubscribeStatus(boolean subscribeStatus) {
-	this.subscribeStatus = subscribeStatus;
+    public void setActive(boolean active) {
+	this.active = active;
     }
 
     @Override
     public String toString() {
 	return "Subscribe [id=" + id + ", totalPrice=" + totalPrice + ", paid=" + paid + ", monthSubscribed="
-		+ monthSubscribed + ", periodical=" + periodical + ", user=" + user + ", dateBeginSubscribe="
-		+ dateBeginSubscribe + ", dateEndSubscribe=" + dateEndSubscribe + ", paymentStatus=" + paymentStatus
-		+ ", subscribeStatus=" + subscribeStatus + "]";
+		+ monthSubscribed + ", periodical=" + periodical + ", dateBeginSubscribe=" + dateBeginSubscribe
+		+ ", dateEndSubscribe=" + dateEndSubscribe + ", paymentStatus=" + paymentStatus + ", active=" + active
+		+ "]";
     }
 
 }

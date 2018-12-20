@@ -15,7 +15,7 @@ public class User {
     private String phoneNumber;
     private String address;
     private BigDecimal balance;
-    private List<Subscribe> userSubscribes;
+    private List<Subscription> userSubscribes;
     private boolean active;
 
     public int getId() {
@@ -90,11 +90,11 @@ public class User {
 	this.address = address;
     }
 
-    public List<Subscribe> getUserSubscribes() {
+    public List<Subscription> getUserSubscribes() {
 	return userSubscribes;
     }
 
-    public void setUserSubscribes(List<Subscribe> userSubscribes) {
+    public void setUserSubscribes(List<Subscription> userSubscribes) {
 	this.userSubscribes = userSubscribes;
     }
 

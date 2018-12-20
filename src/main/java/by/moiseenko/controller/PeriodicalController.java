@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import by.moiseenko.entity.Periodical;
-import by.moiseenko.entity.Subscribe;
 import by.moiseenko.service.PeriodicalService;
 
 @Controller
@@ -28,19 +27,20 @@ public class PeriodicalController {
     @GetMapping("/periodicals")
     public String getAllPeriodicals(Model model) {
 	model.addAttribute("periodicalsList", periodicalService.getAllPeriodicals());
-
 	return "/admin/periodicalsServiceList";
     }
 
     @PostMapping("/addPeriodical")
     public String addPeriodical(@ModelAttribute("periodical") Periodical periodical) {
-	this.periodicalService.addPeriodical(periodical);
+	logger.debug(periodical);
+	periodicalService.addPeriodical(periodical);
 	return "redirect:/periodicals";
     }
 
     @PostMapping("/editPeriodical")
     public String editPeriodical(@ModelAttribute("periodical") Periodical periodical) {
-	this.periodicalService.editPeriodicalById(periodical);
+	logger.debug(periodical);
+	periodicalService.editPeriodicalById(periodical);
 	return "redirect:/periodicalUpdateDelete?id=" + periodical.getId();
     }
 
@@ -52,26 +52,15 @@ public class PeriodicalController {
 
     @PostMapping("/deletePeriodical")
     public String deletePeriodical(@ModelAttribute("periodical") Periodical periodical) {
-	this.periodicalService.deletePeriodicalById(periodical);
+	logger.debug(periodical);
+	periodicalService.deletePeriodicalById(periodical);
 	return "redirect:/periodicals";
     }
 
-    @GetMapping("/periodicalsListForSubscribe")
+    @GetMapping("/periodicalsListForSubscription")
     public String periodicalsListForSubscribe(Model model) {
-	model.addAttribute("periodicalsListForSubscribe", periodicalService.getAllPeriodicals());
-
-	return "user/periodicalsListForSubscribe";
-    }
-
-    @PostMapping("/addSubscribe")
-    public String addSubscribe(@ModelAttribute("periodicals") Periodical periodical) {
-
-	logger.debug(periodical);
-	Subscribe subscribe = new Subscribe();
-
-	subscribe.setPeriodical(periodical);
-	logger.debug(subscribe);
-	return "redirect:/periodicalsListForSubscribe";
+	model.addAttribute("periodicalsListForSubscription", periodicalService.getAllPeriodicals());
+	return "user/periodicalsListForSubscription";
     }
 
 }

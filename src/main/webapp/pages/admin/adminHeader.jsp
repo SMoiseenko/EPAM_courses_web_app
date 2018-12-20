@@ -10,7 +10,7 @@
 	</form>
 
 	<form
-		action="${pageContext.request.contextPath}/userslist?uname=shit&psw=canhappend"
+		action="${pageContext.request.contextPath}/userslist"
 		method="post">
 		<button>Management of all users</button>
 	</form>
@@ -19,7 +19,7 @@
 		<button onclick="history.back()">Step back</button>
 	
 
-	<form action="${pageContext.request.contextPath}/">
+	<form action="${pageContext.request.contextPath}/signout">
 		<button>Exit account</button>
 	</form>
 

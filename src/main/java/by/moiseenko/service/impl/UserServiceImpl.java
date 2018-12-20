@@ -35,7 +35,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public User authorization(String name, String password) {
 	User user = userDao.authorization(name, password);
-	System.out.println(user);
 	return user;
     }
 

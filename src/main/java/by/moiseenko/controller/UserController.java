@@ -1,14 +1,9 @@
 package by.moiseenko.controller;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,32 +29,8 @@ public class UserController {
     }
 
     @PostMapping("/userslist")
-    public String getAllUsersList(@RequestParam String uname, @RequestParam String psw,
-	    @CookieValue(value = "hitCounter", defaultValue = "0") Long hitCounter, HttpServletResponse response,
-	    HttpServletRequest request, Model model) {
-
-	hitCounter++;
-
-	response.addCookie(new Cookie("hitCounter", hitCounter.toString()));
-
-	Cookie[] allReturnCookies = request.getCookies();
-	String cookieName = "hitCounter";
-	Cookie cookieReturned = null;
-	String cookieRecievedValue = "No cookie found";
-	for (Cookie c : allReturnCookies) {
-	    if (c.getName().equals(cookieName)) {
-		cookieReturned = c;
-		cookieRecievedValue = cookieReturned.getValue();
-		break;
-	    }
-	}
-	System.out.printf("Sended cookie is : %s.%n", hitCounter.toString());
-	System.out.printf("Returned cookie is : %s.%n", cookieRecievedValue);
-	System.out.printf("Session ID : %s.%n", request.getSession().getAttribute("mysSession"));
-
+    public String getAllUsersList(Model model) {
 	model.addAttribute("usersList", userService.getAllUsersWithRoles());
-	model.addAttribute("USERNAME", uname);
-	model.addAttribute("PASSWORD", psw);
 	return "/admin/usersList";
     }
 
@@ -88,14 +59,9 @@ public class UserController {
 	case "ADMIN":
 	    model.addAttribute("userLoged", user);
 	    return "admin/adminHomePage";
-
-	case "ANONYMOUS":
-	    return "redirect:/index";
-
 	case "CUSTOMER":
 	    model.addAttribute("userLoged", user);
 	    return "user/userHomePage";
-
 	default:
 	    return "redirect:/index";
 	}

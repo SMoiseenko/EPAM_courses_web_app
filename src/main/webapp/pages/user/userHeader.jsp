@@ -9,13 +9,13 @@
 
 
 	<form
-		action="${pageContext.request.contextPath}/periodicalsListForSubscribe">
+		action="${pageContext.request.contextPath}/periodicalsListForSubscription">
 		<button>List of all periodicals</button>
 	</form>
 
 	<form
-		action="${pageContext.request.contextPath}/userslist?uname=shit&psw=canhappend"
-		method="post">
+		action="${pageContext.request.contextPath}/userSubscriptionList" method="post">
+		<input name="user_id" type="hidden"  value="${sessionScope.userLoged.id}">
 		<button>List of all subscribes</button>
 	</form>
 
@@ -23,7 +23,7 @@
 	<button onclick="history.back()">Step back</button>
 
 
-	<form action="${pageContext.request.contextPath}/">
+	<form action="${pageContext.request.contextPath}/signout">
 		<button>Exit account</button>
 	</form>
 

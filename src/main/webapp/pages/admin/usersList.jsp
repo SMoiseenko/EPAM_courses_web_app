@@ -39,6 +39,6 @@
 				</tr>
 			</c:forEach>
 		</table>
-	s</div>
+	</div>
 
 	<%@ include file="../service/footerPage.jsp"%>

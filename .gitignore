@@ -1,7 +1,8 @@
+/.idea/
+/logs/
 /target/
 /.settings/
 /.classpath
 /.project
-/log/
 /.dbeaver-data-sources.xml
-/logs/
+/Periodicals.iml
